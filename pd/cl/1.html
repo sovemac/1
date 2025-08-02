@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Matériel de Plomberie - Sovemac Oyo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:ital,wght@0,700&1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --color-bg: #f0f8ff; /* Très léger bleu / blanc */
+      --color-primary: #1e22ff; /* Bleu plus vif */
+      --color-primary-dark: #002fff; /* Bleu foncé pour le survol */
+      --color-text: #333333; /* Texte sombre */
+      --color-text-light: #555555; /* Texte gris clair */
+      --color-accent: #003cff; /* Cyan pour l'accentuation */
+      --glass-bg: rgba(255,255,255,0.85); /* Fond blanc semi-transparent */
+      --shadow-primary: rgba(30,144,255,0.3); /* Ombre bleue */
+      --transition: 0.3s ease;
+      --border-radius: 12px;
+      --max-width: 1200px;
+    }
+
+
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--color-bg); /* Light background */
+      color: var(--color-text); /* Dark text for contrast */
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 40px 20px 80px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--glass-bg); /* White transparent header */
+      backdrop-filter: saturate(180%) blur(12px);
+      border-bottom: 1px solid rgba(0,123,255,0.1); /* Subtle blue border */
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 9999;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* Light shadow for header lift */
+      user-select: none;
+      user-drag: none;
+    }
+
+    .logo {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--color-accent); /* Blue logo */
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      user-select: text;
+    }
+
+    nav a {
+      color: var(--color-text); /* Dark text for nav links */
+      text-decoration: none;
+      font-weight: 600;
+      margin-left: 24px;
+      transition: color var(--transition);
+    }
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--color-primary); /* Blue on hover */
+      outline: none;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 100px auto 0 auto;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 2.8rem;
+      color: var(--color-accent); /* Blue heading */
+      margin-bottom: 32px;
+      user-select: text;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-align: center;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 30px;
+    }
+
+    article.product-card {
+      background: #ffffff; /* Pure white card background */
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Lighter shadow for cards */
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+      user-select: none;
+    }
+    article.product-card:hover,
+    article.product-card:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 42px var(--shadow-primary); /* Blue shadow on hover */
+      outline: 2px solid var(--color-primary); /* Blue outline */
+      outline-offset: 6px;
+    }
+
+    article.product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      border: 3px solid var(--color-primary); /* Blue border for images */
+      transition: transform 0.3s ease;
+      user-select: none;
+      user-drag: none;
+      -webkit-user-drag: none;
+    }
+    article.product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-title {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: var(--color-primary); /* Blue product titles */
+      user-select: text;
+    }
+
+    .product-desc {
+      color: var(--color-text-light); /* Medium grey for descriptions */
+      font-size: 1rem;
+      flex-grow: 1;
+      user-select: text;
+      margin-bottom: 10px;
+    }
+
+    .product-price { /* This class is in CSS but not in HTML */
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--color-primary);
+      user-select: text;
+    }
+
+    /* Styles for the "commandez" and "EXEMPLES" buttons */
+    .order-button {
+      border: var(--color-primary-dark); /* Darker blue border */
+      border-style: solid;
+      text-align: center;
+      font-size: 1rem;
+      background-color: var(--color-primary); /* Vibrant blue background */
+      color: #ffffff; /* White text on button */
+      text-decoration: none; /* Remove underline */
+      padding: 10px 15px; /* Add some padding */
+      border-radius: 6px; /* Slightly rounded corners */
+      transition: background-color var(--transition), color var(--transition);
+      margin-top: auto; /* Push to bottom of card */
+      display: block; /* Make it block level to take full width */
+      width: 100%; /* Ensure it takes full width of parent */
+    }
+
+    .order-button:hover,
+    .order-button:focus-visible {
+        background-color: var(--color-primary-dark); /* Darker blue on hover */
+        color: #ffffff; /* White text on hover */
+        outline: none;
+    }
+
+    footer {
+      background: #f0f2f5; /* Light grey/blue for footer */
+      text-align: center;
+      padding: 28px 20px;
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      user-select: none;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.05); /* Very light shadow */
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      border-top: 1px solid rgba(0,123,255,0.05); /* Very subtle blue top border */
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" aria-label="Sovemac Oyo">SOVEMAC OYO</div>
+</header>
+
+<main role="main">
+  <h1>Matériel de Plomberie</h1>
+  
+  <section aria-label="Liste des produits de plomberie" class="products-grid">
+    <article class="product-card" tabindex="0">
+      <img src="statics/1/1.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Robinet laiton chromé</h2>
+      <p class="product-desc">Robinet durable en laiton chromé, adapté pour évier et lavabo.</p>
+      
+     <a href="ct.html" class="order-button">commandez</a>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="statics/1/2.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Tuyaux PVC</h2>
+      <p class="product-desc">Tuyaux en PVC standards pour réseaux d’eau froide et chaude.</p>
+      
+      <a href="ct.html" class="order-button">commandez</a>
+    </article>
+
+    <article class="product-card" tabindex="0">
+  <img src="statics/1/3.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Raccords & Connecteurs</h2>
+      <p class="product-desc">Raccords en laiton et plastique pour assemblage de tuyauteries.</p>
+     
+      <a href="ct.html" class="order-button">commandez</a>
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="statics/1/4.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Clé à molette</h2>
+      <p class="product-desc">Outil réglable pour serrer ou desserrer écrous et raccords.</p>
+      
+      <a href="ct.html" class="order-button">commandez</a>   
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="statics/1/5.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Flexibles eau</h2>
+      <p class="product-desc">Flexibles de raccordement pour eau chaude et froide, haute résistance.</p>
+      
+     <a href="ct.html" class="order-button">commandez</a>  
+    </article>
+
+    <article class="product-card" tabindex="0">
+      <img src="statics/1/6.jpg" alt="Robinet en laiton chromé" />
+      <h2 class="product-title">Siphon lavabo</h2>
+      <p class="product-desc">Siphon standard pour évacuation d’eau sous lavabo ou lavabo suspendu.</p>
+      
+      <a href="ct.html" class="order-button">commandez</a>
+    </article>
+
+  </section> 
+  <br>
+  <p style="font-size: 2rem;">nous avons beaucoup plus que ça dans nos boutiques </p>
+  <a href="pl.html" class="order-button">EXEMPLES</a>
+  <br>
+  <br>
+  <a href="ct.html" class="order-button">plus</a>
+
+</main>
+
+
+
+</body>
+</html>
